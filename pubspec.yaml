@@ -36,6 +36,7 @@ dependencies:
   pin_code_fields: ^7.4.0
   google_maps_flutter: ^2.0.9
   geolocator: ^7.6.2
+  material_floating_search_bar: ^0.3.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
