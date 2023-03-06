@@ -17,62 +17,75 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Form(
-          key: _phoneFormKey,
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
-            child: ListView(
-              children: [
-                const TopScreenText(),
-                SizedBox(height: 60.h),
-                Row(
-                  children: [
-                    countryCodeWidget(),
-                    SizedBox(
-                      width: 15.w,
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 6.h, horizontal: 12.h),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: MyColor.blue),
-                          borderRadius: BorderRadius.circular(6.sp),
-                        ),
-                        child: TextFormField(
-                          autofocus: true,
-                          cursorColor: Colors.black,
-                          keyboardType: TextInputType.phone,
-                          style: TextStyle(
-                              fontSize: 14.sp,
-                              letterSpacing: 2.0,
-                              color: Colors.black),
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter your phone number';
-                            } else if (value.length < 11) {
-                              return 'Please enter a correct phone number';
-                            }
-                            return null;
-                          },
-                          onSaved: (newValue) {
-                            phoneNumber = newValue!;
-                          },
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              MyColor.blue,
+              MyColor.blue.withOpacity(0.1),
+            ],
+          ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Form(
+            key: _phoneFormKey,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
+              child: ListView(
+                children: [
+                  const TopScreenText(),
+                  SizedBox(height: 60.h),
+                  Row(
+                    children: [
+                      countryCodeWidget(),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 6.h, horizontal: 12.h),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: MyColor.blue),
+                            borderRadius: BorderRadius.circular(6.sp),
+                          ),
+                          child: TextFormField(
+                            autofocus: true,
+                            cursorColor: Colors.black,
+                            keyboardType: TextInputType.phone,
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                letterSpacing: 2.0,
+                                color: Colors.black),
+                            decoration:
+                                const InputDecoration(border: InputBorder.none),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter your phone number';
+                              } else if (value.length < 11) {
+                                return 'Please enter a correct phone number';
+                              }
+                              return null;
+                            },
+                            onSaved: (newValue) {
+                              phoneNumber = newValue!;
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50.h,
-                ),
-                nextButton(context),
-                _buildPhoneNumberSubmitedBloc()
-              ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  nextButton(context),
+                  _buildPhoneNumberSubmitedBloc()
+                ],
+              ),
             ),
           ),
         ),

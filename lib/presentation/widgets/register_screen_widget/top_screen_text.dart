@@ -13,14 +13,22 @@ class TopScreenText extends StatelessWidget {
       children: [
         Text(
           'What is your phone number ?',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+            color: Colors.black,
+          ),
         ),
         SizedBox(
           height: 22.h,
         ),
         Text(
           'Please enter your phone number to verify your account .',
-          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16.sp),
+          style: TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize: 16.sp,
+            color: Colors.black,
+          ),
         ),
       ],
     );

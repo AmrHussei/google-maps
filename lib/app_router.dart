@@ -6,6 +6,10 @@ import 'package:maps/presentation/screens/otp_screen.dart';
 import 'package:maps/presentation/screens/register_screen.dart';
 import 'package:maps/utils/strings.dart';
 
+import 'business_logic/maps/maps_cubit.dart';
+import 'data/repository/maps_repo.dart';
+import 'data/services/places_webservices.dart';
+
 class AppRouter {
   final PhoneAuthCubit _phoneAuthCubit = PhoneAuthCubit();
 
@@ -28,7 +32,11 @@ class AppRouter {
         );
       case mapScreen:
         return MaterialPageRoute(
-          builder: ((context) => const MapScreen()),
+          builder: (_) => BlocProvider(
+            create: (BuildContext context) =>
+                MapsCubit(MapsRepository(PlacesWebservices())),
+            child: const MapScreen(),
+          ),
         );
     }
   }

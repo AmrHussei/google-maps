@@ -36,7 +36,7 @@ class BuildIntoText extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 16.sp,
-                color: MyColor.blue,
+                color: MyColor.lightGreey,
                 height: 1.1.h),
           ),
         ]))

@@ -17,18 +17,31 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
-        child: ListView(children: [
-          BuildIntoText(phonNumber: phonNumber),
-          SizedBox(height: 60.h),
-          pinCodeWidget(context),
-          SizedBox(height: 50.h),
-          _verifyButton(context),
-          _buildVirificationBloc()
-        ]),
-      )),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              MyColor.blue,
+              MyColor.blue.withOpacity(0.1),
+            ],
+          ),
+        ),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
+              child: ListView(children: [
+                BuildIntoText(phonNumber: phonNumber),
+                SizedBox(height: 60.h),
+                pinCodeWidget(context),
+                SizedBox(height: 50.h),
+                _verifyButton(context),
+                _buildVirificationBloc()
+              ]),
+            )),
+      ),
     );
   }
 
@@ -40,6 +53,7 @@ class OtpScreen extends StatelessWidget {
       autoFocus: true,
       cursorColor: Colors.black,
       keyboardType: TextInputType.number,
+      textStyle: TextStyle(color: Colors.black, fontSize: 17.sp),
       animationType: AnimationType.scale,
       pinTheme: PinTheme(
           shape: PinCodeFieldShape.box,

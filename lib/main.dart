@@ -12,7 +12,7 @@ void main() async {
 
   FirebaseAuth.instance.authStateChanges().listen((user) {
     if (user == null) {
-      initialRoute = mapScreen;
+      initialRoute = registerScreen;
     } else {
       initialRoute = mapScreen;
     }
